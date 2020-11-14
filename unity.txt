@@ -1,0 +1,124 @@
+---------console--------
+Debug.Log("Texto");-mostra mensagem no console unity
+Debug.LogWarning("Texto atenção");-mensagem de atenção
+Debug.LogError("Mensagem de error");
+------------------------
+
+---------funções--------
+void Awake(){}-executada antes da função start,chamado ate se o script não for ativado
+usado para codigo antes do jogo começar
+void Start(){}-executada uma vez ao executar programa, chamado apenas se o script for ativado
+void Update(){}-executada todo frame
+void OnCollision(Collision nome){}-função chamada quando um objeto sofre colisão
+void OnMouseDown(){}-açoes para mause clicado
+void OnMouseUp(){}-ações mause desclicado
+InvokeRepeating("função",tempo,quantas vezes pelo tempo)-chama a funçao a cada tempo e quantas vezes
+------------------------
+
+------arrays-e-vectors--
+tipo[] nome=new tipo[tamanho];
+tipo[] nome=new tipo[tamanho]{elemento1,elemento2}
+tipo[] nome=new tipo[]{elemento1,elemento2}
+vector2---
+guarda dois valores dentro(x e y)
+---
+vector3---
+guarda 3 valores dentro(x,y,z)
+---
+------------------------
+
+--------objects---------
+usar public em variaveis para mudalas no inspector unity ou [SerializeField]
+[HideInInspector]-esconder variavel no inspetor unity
+Destroy(objeto,tempo de destruição);
+Instantiate(objeto,posição,rotação)-inicia um objeto
+Trigger---
+usar objeto como gatilho
+void OnTriggerEnter(Collider nome){}
+---
+transform---
+contem posição,rotação e escala de um objeto
+transform.position-
+transform.rotation
+transform.localScale
+tranform.Translate(x,y,z)-usar para mover objeto(0 para não mover em certa direção)
+tranform.Rotate(x,y,z)-rodar objeto em certo angulo
+---
+tags---
+usado para classificar objetos
+this.gameObject.tag
+GameObject.FindWithTag("tag")-achar objeto com tag
+GameObject nome= GameObject.FindWithTag("tag")-guarda objeto com tag em um objeto
+GameObject.FindGameObjectsWithTag("tag")-achar todos objetos com tag para guardar em um array de gameobjects
+
+---
+
+acessing component---
+GetComponent<component>();
+usar component do objeto e guarda-lo em uma variavel
+acessando componente de um children
+GetComponentInChildren<component>();	
+---
+
+propriedades de outros objetos-
+Destroy.(gameObject);
+Destroy.(colission.gameObject);
+
+Quaternion.Euler(vector3)-usado para rotacionar objetos (usa angulos)-retorna as unidades de rotaçao usada pelo transform.rotate
+transform.rotate(Vector3)-não usa angulos para rotacionar e sim unidades
+------------------------
+
+--------Time------------
+Time.deltaTime-tempo que passou desde ultimo start(usado para não depender do fps)
+tempo total em segundos deste o ultimo frame
+------------------------
+
+--------Input-----------
+Input.GetKey(KeyCode.tecla)-KeyUp e KeyDown juntos, retorna true se a tecla for prssionada
+Edit>projects Settings>Input--input padrao(button)
+Input.GetButtonDown("ação")
+Input.GetAxis("axis")-float com a cordenada do axis
+Horizontal-a e d-esquerda direita
+Vertical-w e s-cima e baixo
+Input.GetAxisRaw("Horizontal")--
+retorna 1 se apertar D ou seta para direita
+-1 se apertar A ou seta para esquerda
+0 se nao pressionar nada
+--
+Mouse-input---
+Input.GetMouseButtonDown(ou Up)+(botao do mouse)-retorna true se o botao do mause for clicado
+0-left
+1-righ
+2-middle
+Input.mousePosition-vector com 3 dimensoes com x,y e z
+
+---
+------------------------
+
+---------coroutine------
+usado para executar um codigo e após um determinado tempo 
+executar outro codigo
+IEnumerator nomefunção(parametros){
+codigo1;
+yield return new WaitForSeconds(numerof);
+codigo2;
+}
+executar coroutine--
+StartCoroutine("nomefunção",parametros);
+ou
+StartCoroutine(nomefunção(parametros));
+------------------------
+
+--------scenes----------
+using UnityEngine.SceneManagement;
+adicionar scenes ao game build(cenas usadas no jogo)
+File>build settings
+SceneManager.LoadScene(Index da scene ou "nome da scene", modo);
+LoadSceneMode.Additive-scenes adicionadas ao editos ao mesmo tempo
+------------------------
+
+-----------math.f-------
+Mathf.Repeat(x,y)-valor x pode se repetir mas nao excedera 0..y
+Mathf.Clamp(float valor,float min,float max)-retorna numero entre minimo e maximo(usado para limitar camera na rotação y)
+
+------------------------

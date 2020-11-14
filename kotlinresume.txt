@@ -1,0 +1,4 @@
+----------print----------
+println()-mostrar linha
+"%.nf".format(codigo)-formata saida em float colocando 2 casas decimais
+-------------------------

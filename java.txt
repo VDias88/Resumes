@@ -1,0 +1,56 @@
+--------collections---------
+set---
+set-coleção que não permite elementos duplicados
+SortedSet herda de set e permite classificação
+hashset-
+acesso rapido, mas sem ordenamento
+-
+treeset-
+dados classificados,mas com acesso lento
+-
+linkedhashset-
+derivada de hashset mas com lista duplamente ligada por seus itens
+itens iterados(percorridos) na ordem que foram inseridos
+-
+hashmap-
+tabelas de espalhamento, permite chaves e valores null
+sem ordenação
+uso de identificador(id)
+-
+treemap-
+implementa sortedmap
+garantia que o mapa estará classificado em ordem ascendente das chaves
+utilizado para aplicações de mapas ordenados
+menor desempenho
+-
+linkedhashmap-
+lista duplamente ligada por seus itens
+ordem definida pela inserção
+-
+---
+
+List---
+coleção ordenada,pode conter itens duplicados
+usuário tem controle sobre as posições de inserção e recuperação de elementos
+usada quando acesso não sequencial é necessario
+ArrayList-
+array com tamanho variavel
+busca rapida,mas inserção e exclusao lentas
+-
+List-
+lista ligada, cada nó possui informação e referencia ao proimo nó
+busca lenta, inserção e explusao rapidas
+-
+---
+
+queue---
+coleção para manter lista de prioridades
+ordem definida pela implementação de Comparable ou Comparator
+---
+map---
+cada elemento é representado por dois objetos,chave e valor
+valores podem ser duplicados, mas chaves nao
+SortedMap é uma interface que herda e permite classificação ascendente de chaves 
+---
+
+----------------------------
