@@ -1,6 +1,6 @@
 # Resumes
-Neste deporitorio, guardo todos resumos, escritos durante os estudos de diferentes tecnologias.
-Fique a vontade para usar para estudos. 🚀
+Neste depositório, guardo todos resumos, escritos durante os estudos de diferentes tecnologias.
+Fique a vontade para usar para seus estudos. 🚀
 ### 🛠 Resumos
 
 Algumas das tecnolodias que estudei:
