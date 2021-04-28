@@ -1,0 +1,115 @@
+----------------------------------------
+Padronização,responsividade
+
+----------------------------------------
+
+--------------[Espaçamentos]------------
+[margin]
+class="m-n"
+m=margin + orientação(botton,left,right,top)
+n=valor entre 0-5 ou auto
+Ex-
+<div class="mb-5"></div>
+magin botton de 5 
+* usando eixos
+class="my-n"//margin no eixo y
+     ="mx-n"//magin no eixo x
+[Padding]
+class="p-n"
+p=padding + orientaçao( ou eixos)
+n=valor entre 0-5 ou auto
+
+----------------------------------------
+
+-----------------[Cores]----------------
+[Predefinidas]
+* letras
+.text-primary=azul
+.text-secondary=cinza
+.text-success=verde claro
+.text-danger=vermelho
+.text-warning=amarelo
+.text-info=verde azul
+.text-light=cinza claro
+.text-dark=preto
+.text-muted=preto claro
+* background
+bg-primary=azul...
+
+----------------------------------------
+
+--------------[Componentes]-------------
+* jumbotron
+Grande título
+<div class="jumbotron">
+    <h1 class="display-4">Título</h1>
+    <hr class="my-4">Descrição</hr>
+</div>
+* breadcrumb
+Mostra caminho percorrido no site
+home/fundamentos/componentes
+<nav class="mb-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Fundamentos</li>
+    </ol>
+</nav>
+----------------------------------------
+
+--------------------[Flex]--------------
+.d-flex//usando flex-box em um componente
+
+* disposiçao de colunas
+.flex-column
+            -reverse
+* alinhamento 
+.align-self-end
+           -start
+           -center
+[Rsponsividade]
+.d-XX-flex//habilitando flex em apenas em certos tamanhos
+XX=
+    sm-pequeno(<576px)
+    md-medio(>=576px)
+    lg-largo(>=992px)
+    xl-muito grande(>=1200px)
+----------------------------------------
+
+------------------[Midia]---------------
+[Imagens]
+.mx-auto d-block=deixando imagem centralizada
+width="tamanho" usando propriedade no html pra aplicar ttamanho da imagem
+* classes
+.img-thumbnail//aplica moldura na imagem e possui responsividade
+.img-fluid//responsiva
+.img-fluid rounded//arredondamento de borda
+           rounded-cricle//formatto circular
+
+----------------------------------------
+
+-----------------[Float]----------------
+passando div para determinado lado
+.float-right
+      -left
+* responsivo
+.float-XX-right
+         -left
+----------------------------------------
+
+-----------------[Grid]-----------------
+* basico grid
+.container-fluid//definindo container do tipo centralizado( usa toda view port)
+.row//definindo linha
+.col//definindo coluna
+.col-n//ocupar n colunas do total
+----------------------------------------
+
+------------------[Text]----------------
+text-center
+    -left
+    -righ
+* responsivo
+text-XX-left...
+----------------------------------------

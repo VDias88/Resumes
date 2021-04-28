@@ -1,0 +1,402 @@
+
+----------[midia]------------
+elemento{
+    background-image: url('link absoluto ou relativo');
+    
+}
+-----------------------------
+
+-----------[Anatomia]--------
+.seletor{
+    /*cores*/
+    color: cor;
+    /*Unidades*/
+    font-size:30px;
+    /*Valores predefinidos*/
+    text-align:center;
+    /*Multiplos valores*/
+    border:solid 5px navy;/*Shorthand property(acesso mais rapido)*/
+    border:estilo grossura cor
+    font-family:Helvetica,monospace/*Cao primeira fonte não existir ele usa a segunda*/
+    /*Funções*/
+    width:calc(100%-100px);(calcular operação matematica)
+    background-color: rgb(red,green,blue);(porcentagem de cada cor)
+}
+[Pseudo classe]
+* hover
+(Aplicada quando mause passar pelo componente)
+.seletor:hover{
+    background-color:red;
+}
+[Pseudo elemento]
+* usando pseudo elemento para pegar primeira letra
+.selector::first-letter{
+    font-size:60px;
+    font-weight:bold;
+}
+-----------------------------
+
+--------[Preferencia]--------
+no css a folha de estilo que terá preferencia será a ultima a ser executada
+* inline
+css aplicado a linha de html
+* interno
+tag style dentro do html
+* externo
+aquivo css usado com o link
+-----------------------------
+
+----------[Tag]--------------
+padding-espaço ao redor de elementos
+
+-----------------------------
+
+----------[Seletores]--------
+* combinar Seletores
+div+p-adjacent sibling
+div~p-general sibling
+div>p-child
+dev p-descendant
+* universal
+*{
+
+}
+* usando tag
+tag1,tag2{
+    propriedade1:elemento;
+}
+* usando classes
+.classe_de_elemento{
+    propriedade1:elemento;
+}
+* usando id
+#id{
+    prop1:elemento;
+}
+* usando propriedade
+<tag class="" propriedade="algo">
+[propriedade]{
+
+}
+ou 
+[propriedade=valor]{
+
+}
+[propriedade~=valor]{}-caso a propriedade esteja escrita propriedade="valor valor1" ele considera 
+[propriedade*=valor]{}-se valor esta contido dentro de outros nomes valor123123 sera aceito pois contem valor
+* filhos
+tag:nth-child(index){}-tag filho de alguem que esteja na posição index
+tag:nth-child(odd ou even){}-odd-tag filho de alguem que seja impar
+                            -even-tag filho que seja par
+* tipos
+tag1>tag2:nth-og-type(index){}-dentro da tag1 pegar segundo elemento do tipo tag2
+-----------------------------
+
+--------[Especificidade]-----
+1)!important
+2)seletores mais especificos
+
+3)ordem de execução
+
+-----------------------------
+
+-----------[Herança]---------
+quando estilos aplicados a determinadas divs divs internas podem herdar algumas propriedades
+tag{
+    propriedade: inherit;-usado para usar as propriedades de Herança
+    
+}
+-----------------------------
+
+------[Propriedades]---------
+[Box model]
+__________
+|conteudo|padding|border|margim|
+* padding
+espaço entre o conteudo em si e as bordas
+padding valores;
+* border
+bordas do conteudo
+border: tipo largura cor;
+* margin
+espaço entre o conteudo, padding e border e a pagina 
+margin valores;
+* margin colapse
+quando margin de diferentes elementos se sobrepoem
+position abosulute
+display inline , block sao propriedades que evitam o colapso
+* valores dinamicos
+padding: n1 n2;-n1 será aplicado ao padding-button e padding-top e n2 será aplicado ao left e right
+ou padding n1 n2 n3 n4; n1 sera para top n2 right n3 button n4 left
+* float
+propriedade faz com que elementos percam display: block(não ficam cada um em sua linha),
+os movendo de acordo com o lado
+float: right ou left;
+* clear
+clear: orientação;
+usado para tornar vazio um local de orientaçao ja vazio
+orientação-both,right,left
+* text-align
+alinha texto de elementos
+text-align: local;
+* box-shadow
+box-shadow: n1 n2 n3 n4 cor;
+cria sobra sobre o elemento(botao)
+[display]
+modo de mostrar elementos
+display: tipo;
+* tipos
+block-cada elementos ocupa sua linha(considera altura e largura)
+inline-cada elemento ocupa uma linha(ignorar largura e altura)
+inline-block-cada elemento em uma linha(aceitar largura e altura)-usado para menus e cards
+
+[Altura e largura]
+por padrao a tag html não ocupa toda altura da pagina 
+tendo que criar tag 
+html{
+    height:100%;
+}
+se o valor for percentual ele levará em consideração ao parent
+
+[Box sizing]
+propriedade que muda o tamanho de determinado elemento de acordo o espaço oferecido
+mais usado no seletor universal
+box-sizing: tipo;
+* tipos
+content-box-elemento ocupa 100% do conteudo sem contar com padding e border( causamdp estrapolação)
+border-box-ocupa 100% do conteudo contando com border e padding
+
+[Overflow]
+quando elementos dentro alguma div estrapolam seu tamanho
+overflow: tipo;
+* tipos
+hidden-tudo que estrapolar elemento será escondido
+scroll-adiciona scroll as partes que ultrapassaram
+        overflow-x: scroll; adiciona scroll apenas no eixo X 
+        overflow-y: scroll; adiciona scroll apenas no eixo Y
+-----------------------------
+
+------------[Cores]----------
+//https://paletton.com/
+//https://coolors.co/
+color: #RRVVAATT;
+R-porcentagem de veermelho
+V-porcentagem de verde
+A-porcentagem de azul
+TT-porcentagem de transparencia
+* rgb
+rgb(r,g,b) ou (r,g,b,t)-transparencia(0...1)
+* hsl
+hue,saturation,lightness
+hsl(h,s,l) ou ()
+-----------------------------
+
+----------[Unidades]---------
+* absolutas
+tamanhos fixos
+px
+cm
+mm
+* viewport
+tamanhos não fixas que mudam de tamanho de acordo com tamanho do browser
+vh-porcentagem sobre o total da altura
+vw-porcentagem sobre o total da largura
+vmin-menor dimensao
+vmax-maior dimensão
+[Font]
+* tamanho absoluto
+px
+* tamanho relativo
+rem-tamanho relativo em relaçao ao principal da aplicação(html)
+em-tamanho rlativo em relação ao pai(mais proximo)
+-----------------------------
+
+------------[Texto]----------
+* valores padroes
+1em=100%=16px=12pt
+* valores absolutos
+px-pixel
+pt-pontos
+in=polegadas
+72pt=1in
+* relativas
+em
+* familias
+font-family tipo;
+monospace-todas letras ocupam mesmo espaço
+serif-letras com pontas(serifada)
+sans-serif-fonte mais quadrada
+cursive-fonte cursiva
+* peso
+grossura da fonte
+font-weight: tip;
+100-900
+ou predefinidos
+bold,bolder
+* style
+font-style: ;
+italic,...
+* transformation
+text-transform: ;
+uppercase-letras maiusculas
+lowercase-letras minusculas
+capitalize-primeira letra maiuscula
+* decoration
+text-decoration: ;
+adicionar linhas 
+* espaçamento
+word-spacing: ;
+define espaçamento entre palavras
+letter-spacing: ;
+define separação entre letras
+* altura linha
+line-height: ;
+define altura entre as linhas do texto
+* alinhamento
+text-align: ;
+right,left,center
+define alinhamento do texto
+-----------------------------
+
+------[Pseudo classes]-------
+element:hover{
+    usado ao passar mouse sobre elemento
+}
+ou
+element.selected{
+    
+}
+element:active{
+    usado ao clicar sobre elemento 
+}
+-----------------------------
+
+----------[Position]---------
+position: ;
+* tipos
+static-será posicionado de acordo com a dimensaodo componente e dos 
+componentes ao seu redor(ignora espaçamentos top,left...)
+fixed-usado para fixar mesmo com rolagem
+relative-leva em consideração o elemento anterior
+absolute-posiciona-se levando em consideração a pagina como um todo( ou ao elemento pai)
+sticky-"gruda-se" a determinada parte da tela usando mecanica de rolagem
+    usando no safari-position: -webkit-sticky;position:sticky;
+
+-----------------------------
+
+---------[media query]-------
+Responsividade em relação a outros dispositivos
+@media(condição_deaplicação){
+    css a ser executado caso condiçaõ for true
+}
+ou
+@media(condicao1),(condicao2){
+    caso condicao1 ou condicao2foem true css sera executado
+}
+* propriedades importantes
+min-width: ;
+    -height
+max-width: ;
+    -height
+orientation: portrait;
+            landscape
+
+-----------------------------
+
+------------[flex box]-------
+usa apenas uma dimensão
+display: flex;
+
+container-flex container que contem flex itens
+possui apenas uma dimensão (main axis)
+e quando definida(sentido), o outro eixo se define cross axis
+cada axis possui comeco e fim(main start,main end,cross start,cross end)
+                 e tamanho (main size,cross size)
+direção do main axis vem como row(organizar elementos em linha)
+* mudando direction
+flex-direction: direção;
+        column-coloca elementos em colunas 
+        column-reverse-elementos em colunas mas com ordem invertida
+        row-todos elementos em uma linha
+        row-reverse-elementos em uma so linha mas com ordem invertida e com float: right;
+* quebra delinhas em caso de overflow
+flex-wrap: tipo;
+        wrap-ao ultrapassar limites do container ele quebra linha
+        wrap-reverse-ao quebrar linha as linhas que ultrapassaram são levadas para cima
+* flex-flow
+usando as duas propriedades direction e wrap
+flex-flow: direction wrap;
+* justificando conteudo
+justify-content: direção;
+        flex-start-usa o start do main axis como alinhamento
+        flex-end-usa o end do mains axis como alinhamento
+        center-usa o centro como alinhamento
+        space-around-coloca espaço entre elementos para que elementos sejam 
+        colocados de forma uniforme no conteiner
+        space-between-cria espaço apenas entre elementos
+* alinhamento de itens
+align-items: tipo;
+        stretch-caso tenha mais espaço no container itens ficao maiores para usar espaço
+        baseline-alinha de acordo com linha base das fontes(tamanho)
+        flex-start-alinha de acordo com start do cross axis
+        flex-end-alinha de acordo com end do cross axis
+        center-centralisa elementos
+align-self: tipo;-alinhas apenas um item
+* alinhamento de Multiplas linhas
+align-content: tipo;
+        flex-start-alinha linhas para o comeco do container
+        flex-end-alinha linhas para o final do container
+        center-centralisa linhas
+        space-around-cria espaco ao redor dos itens para espalhar uniformemente
+        space-between-cria espaco apenas ao lado de elementos
+* manipular ordem
+por padrao todos itens de um flex container possuem ordem 0
+caso essa ordem seja mudada o item será mudado de posição(crescente)
+order: numero;
+* distribuição de espaço
+flex-grow: numero;-usado para manipular distribuição do espaço de um container
+pra dividir um espaco deve considerar que cada container tem 600 "pesos" de espaço
+e cada div deve ocupar todo espaço assim deve usar media ponderada para dividir
+flex-shrink: numero;-usado para encolher itens usando mesma logica do flex-grow
+flex-basis: tamanho;-definindo tamanho dos elementos gerais no sentido do main axis
+* atalho
+atalho para usado grow,shrink,basis
+flex: grow shrink basis;
+-----------------------------
+
+-----------[css grid]--------
+usa duas dimensões(linhas e colunas)
+display: grid;
+[definir organização]
+* Colunas
+grid-template-columns: ;
+definir qual espaço as colunas devem ocupar
+EX:
+    grid-template-columns: 50% 50%;-vai criar duas colunas com cada item ocupando 50% do espaço da linha
+    grid-template-columns: repeat(n1, p1);repetir n1 vezes a porcentagem p1 em cada elemento
+    grid-template-columns: 200px 20% 1fr;-primeira coluna sera fixa segunda tera 20 por cento do restante e a terceira sera 1 fragmento( o restante)
+grid-columns-start: n;-define em quem coluna determinado elemento comeca, 
+grid-columns-end: n;-define em que coluna determinado elemento termina
+EX:
+    grid-columns-start: 2;
+    grid-template-end: span 2;-usa-se span para defiir que o fim do elemento sera em duas casas a mais da start
+* Linhas
+grid-template-rows: ;
+definir espaço ocupado pelas linhas
+    grid-template-columns: 50% 50%;-define que a primeira e a segunda linha tera metade do espaço total 
+grid-row-start: n;define em que posição vertical a linha comeca
+grid-row-end: n;define em que posição verticala linha comeca
+* espaços entre os grid(gaps)
+column-gap: espaço;-adiciona gap vertical ao grid
+row-gap: ;-adiciona gap horizontal ao grid
+gao: row column;(se usar so um valor sera adicionado o mesmo valor nos dois locais)
+[grid area]
+grid-area: row-start column-start row-end column-end;
+* Nomeando linhas e colunas
+grid-template-columns: [nome1] n1 [nome2 nome3] n2;-primeira coluna tera nome1 e segunda terá nome2 ou nome3
+grid-template-rows: ;
+* index
+z-index: n;definindo profundidade de elementos
+* unidades
+fr-fragmento
+-----------------------------

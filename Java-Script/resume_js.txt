@@ -1,0 +1,473 @@
+-----------[Variaveis]-----------
+let-apos ser declarada não pode ser redeclarada
+   -
+var-pode ser redeclarada
+   -variaveis tipo var está visivel fora de blocos de códigos
+const-sua atribuição não pode ser alterada
+* hoisting
+java script move declaração de variaveis para o topo do código ao ser executado
+---------------------------------
+
+-------------[Tipos]-------------
+typeof variavel;exibe o tipo de variavel
+Number.isTipodoNumber(variavel)-exibe se a variavel é um tipo do Number
+---------------------------------
+
+-----------[Formatação]----------
+variael_float.toFixed(casas decimais)
+---------------------------------
+
+----------[Conversão]------------
+* Number para string
+variavel.toString()
+        .toString(2)-string numero binario
+---------------------------------
+
+-------------[Math]--------------
+Math.Pi-Pi
+---------------------------------
+
+-------------[String]------------
+string.charAt(indice)-mostra o caractere no indice
+string.charcodeAt(indice)-valor do char no indice da tabela ASC
+string.indexOf(char)-primeira localização do char na string
+string.substring(n1,n2)-cortar string de um indice ate outro
+string.concat(variavel)-concatena string com variavel
+string.replace(n1,v1)-no indice n1 sera colocado v1
+string.split(char)-gerar array dividindo-o usando char como parametros
+string.toUpperCase()-torna maiusculo
+* modos
+''
+""
+``-back tick(considera quebra de linha), &{varivel}-concatenação
+---------------------------------
+
+-------------[Number]------------
+Number.prototype.funcao=function(parametros){
+
+}
+let numero=1;
+numero.funcao(parametros);
+---------------------------------
+
+-------------[Boolean]-----------
+No js podemos transformar um valor inteiro (0,1)- para definir um booleano
+let teste=false;
+teste=1;
+console.log(!!teste)-valor teste sera encarado como valor booleano
+* Obs
+algumas variaveis em js possuem valores boleanos como padrao
+* EX
+usando !! para verificar se string esta vazia
+console.log(!!"")-false
+console.log(!!"teste")-true
+---------------------------------
+
+-----------[Array]---------------
+Heterogenio-podem ter varios tipos de variaveis dentro de um array
+let,const nome=[e1,e2,e3]-instanciando arrays literais
+nome[indice]-acessando elementos
+
+[Métodos]
+array.sort()-ordena array o alterando
+nome.length-elementos no array
+nome.push(elemento1,elemento2)-adiciona elementos ao final do array
+nome.pop()-retorna o ultimo valor e o deleta
+delete nome[indice]-apaga o elemento no indice não alterando a ordem e tornando elemento undefined
+array.splice(indice1,alcance)-a partir do indice1 excluir de acordo com o alcance 
+        .splice(indice1,alcance,...elementos)- a partir do indice1 e de acordo com seu alcance sera excluido e adicionado elementos no lugar
+array.shift()-apaga o elemento de inidice 0
+array.unshift(elemento)-adiciona elemento no inicio
+array.slice(numero)-retorna novo array a parti do indice numero de outro array
+        .slice(numero1,numero2)-retorna novo array de indice numero1 ate indice numero2-1
+* for each
+array.forEach(executar em cada elemento)-
+        .forEach(function(nome,indice){
+                função executa usando nome e indice de cada elemento
+ })
+* map
+Usado para varrer cada elemento e criar outro array diferente a partir dele
+Não modifica array original
+Array copia terá mesmo tamanho
+[Ex]
+array.map(funcao(valor,index,array){
+        return valor*2;
+})
+Cada elemento do array será multiplicado por 2
+* filer
+filtra determinado array retirando ou mantendo elementos
+array final será ou do mesmo tamanho ou menor
+array.filter(function(elementos,index,array){
+        return false(elemento será retirado do array final), true(será mantido)
+})
+* reduce
+Dado um array o reduce abaixo pula para o segundo elemento do array tomando ele como valor atual e o primeiro elemento como acumulador
+apartir disso ele soma os dois valores colocando como acumulador, e assim por diante somando todos elementos 
+se definido valor inicial ele sera somado com os outros valores
+array.reduce(function(acumulado,valoratual,indice,array){
+        return acumulador + atual;
+},valorinicial)
+* concat
+array1.concat(array2)-array1 terá array2 adicionado (sem mudar nenhum dos arrays)
+* flatMap
+criando função que transforma matrizes de matrizes em uma so matriz
+Array.prototype.flatMap=function(callback){
+        return Array.prototype.concat.apply([],this.map(callback));
+}
+[Obs]
+* preencher espaço alem do tamanho
+caso seja adicionado um elemento que ultrapassa o tamanho do array
+existira espaços vazios 
+---------------------------------
+
+-------------[Objetos]-----------
+object_name={}-instanciando Objetos
+* criação dinamica
+object_name.atribute=elemento;
+object_name['atributo 1']=elemento2;-pode usar espaços
+* atrbuição direta
+object_name={
+        atribute:elemento;
+        objeto1:{
+                atribute1;elemento2;
+        }
+}
+obj1.atributo1 ou
+obj1['atributo1']
+* metodos de criação de objetos
+função construtora
+
+classe
+
+função factory
+[formas de criação]
+* notação literal
+const obj={}
+* função construtora
+const obj=new Object
+* funçao personalizadas encapsuladas
+function Objeto(paramatros){
+        this.atributo=atributo1;
+}
+* função factory
+em uma função factory pode-se usar uma funçao personalizada encapsulada ou a criaca literal
+function criarObjeto(parametros){
+        return{
+                parametros,
+                metodo(){
+
+                }
+        }
+}
+* objects create
+criando objetos
+const variavel=Object.create(null);
+variavel.atributo=elemento;
+* criando objeto transformando JSON em objeto
+varaivel=JSON.parse('JSON')
+variavel.info
+* objeto constante
+quando objeto for instanciando usando const o objeto em si não pode ser mudado
+mas seus elementos e atributos sim
+[funções object]
+* freeze
+usado quando não queremos mudar objeto e seus elementos
+* keys
+Object.keys(objeto)-adiciona todas chaves de um objeto em um array
+* values
+Object.values(objeto)-cria array com valores de cada chave do objeto
+* entries
+Object.entries(pessoa)-array com chaves e valores do objeto
+* defineProperty
+torna determinada propriedade de objeto imutavel
+Object.defineProperty(objeto_alvo,'propriedade_alvo'.{
+        enumerable: ,//false ou verdadeiro define se a propriedade vai ser listada
+        writable: ,//permite alteração?
+        value: ,//definir valor da propriedade
+});
+* assign
+Object.assign(obj_dest,obj1,obj2)
+coloca no obj destino os valores contidos no obj1 e obj2
+
+---------------------------------
+
+----------[Null,Undefined]-------
+* copia por valor 
+numeros primitivos
+let a=4;
+let b=a;
+b terá uma copia do valor de back
+* cópia por referência
+let obj={nome:"a"};
+let a=obj;
+a tera apenas o mesmo acesso a localização de obj
+se a for mudad obj tambem será 
+---------------------------------
+
+--------------[Function]---------
+function nome(parametros){
+        //código;
+        return value;
+}
+* parametros padrao
+function nome(parametro1,parametro2=0)
+caso n for escrito parametro2, ele será 0
+
+* função em variavel
+const nomevar=function(paramestros){
+
+}
+[funcao arrow]
+sempre é uma função anonima a nao ser se for armazenada em uma constante
+const nomefunc=(parametros)=>{
+}
+* funcao em linha
+nome_const=parametro=>retorno
+usando retorno implicito
+
+* retorno implicito
+const somefunc=(parametros)=>código simples;
+resultado será retornado
+
+* possibilidades
+função de forma literal
+
+função em variavel
+
+função em array
+
+função que armazena atributo de um objeto
+
+passar função como parametro
+
+função pode conter/retornar função
+EX-função retorna outra função que a mesma que retorna um valor
+function some(a,b){
+        return function(c){
+                console.log(a+b+c);
+        }
+}
+soma(2,3)(4)-retorna 9
+* parametros variaveis
+uma função pode ser criada sem parametros mas mesmo assim ela pode ser usada com parametros 
+usando o arguments
+toda função possui array interno de parametros=arguments
+for(i in arguments){
+        //usando for in para navegar nos argumentos de parametros da função
+        //mesmo que ela não foi criada com parametros
+}
+[this]
+aponta para o global no browser e no node
+aponta para o module.exports no arrow function
+
+* bind
+metodo que se liga a um objeto 
+objeto.metodo.bind(objeto)
+
+* cousures
+é o escorpo criado quando função é declarada
+permite função acessar e manipular variáveis externas a função
+
+* factory
+função que retorna objeto
+Ex-function criarProduto(nome,preco){
+        return{
+                nome,
+                preco,
+        }
+}
+* IIFE
+funções invocadas imediatamente
+(function(){
+        console.log("Será executado na hora ");
+})()
+usado para fugir do escorpo global
+* Call e apply
+call-usando métodos de objetos em outros contextos incluindo outros parametros
+metodo.call(objeto_externo,parametro1,paramatros2)
+apply-mesma ideia de call mas usando um array como parametros
+metodo.apply(objeto_externo,[parametro1,paramatro2])
+* tempo
+setInterval("funcao(),3000) A função é executada UMA VEZ A CADA três segundos
+setTimeout("funcao(),3000) A função é executado SOMENTE UMA VEZ, depois de passados os três segundos
+---------------------------------
+
+-------------[Operadores]--------
+* Destructuring
+const/let {atributos}=objeto;
+ou {atributo_doobjeto:novo_nome}=objeto;
+retira do objeto os atributos, podendo serem usados 
+* usando Destructuring para adicionar atributos
+const/let {atributo1,atributo2=elemento1}=objeto;
+* Destructuring em arrays
+const [elemento1,elemento2,atribuição3,...]=[atribuição1,atribuição2,,atribuição3]
+,,usado para pular elementos do array
+os elementos podem ser usados mais facilmente no código
+* Usando Destructuring como parametros(objetos)
+EX-
+function rand({min=0,max=1000}){
+        const valor = Math.random()*(max-min)+min;
+        return Math.floor(valor);
+}
+const obj={max:50,min:40};
+rand(obj);
+rand({min:955});
+usando Destructuring no objeto como parametro,que tem valores padrão
+* Usando Destructuring como parametros(array)
+EX-
+function rand([min=0,max=1000]){
+        if(min>max){
+                [min,max]=[max,min];
+        }
+        const valor =Math.random()*(max-min)*min;
+        return Math.floor(valor);
+}
+rand([50,40])-troca o valor 
+rand([992])-min sera 992 max 1000
+* Operadores relacionais
+'1'==1-verdadeiro-não leva tipo em consideração
+'1'===1-falso(não identico)-leva em consideração o tipo
+'1'!=1-falso-não leva em consideração o tipo
+'1'!==1-verdadeiro-leva em consideração o tipo
+* operadores aritimeticos
+a**b=a elevado a b ou Math.Pow(a,b)
+---------------------------------
+
+--------------[Browser]----------
+window-objeto raiz da pagina do browser
+window=this
+const e let não irao diretamente ao objeto window(não podem aser acessadas por window.variavel)
+this=module.exports(em node)
+* criando variavel ser var e let
+ela será colocada no objeto global do node=não recomendado
+---------------------------------
+
+-------[tratamento de erros]-----
+try{
+
+}catch(exceção){
+        tratamento executado se houver problemas;
+}finally{
+        finally será executado com ou sem problemas;
+}
+throw new Error('msg de error'); ou
+throw "msg", throw true etc
+
+---------------------------------
+
+-----[Estruturas de controle]----
+* repetição
+for(variavel in array){
+   //atribui variavel para cada elemento do array ou objetos
+}
+break-quebrar laço de repetição
+continue-passa para outro bloco de repetição
+* rotulo
+nome_rotulo:estrutura de controle
+rotulo pode ser usado junto com break
+---------------------------------
+
+--------------[POO]--------------
+[classes]
+class Nome{
+        constructor(parametros){
+                this.atribute=parametro;
+        }
+}
+const nome=new Nome(parametros do construtor);
+* heranças em classe
+class Obj_pai{
+        constructor(atribute1){
+                this.atribute1=atribute1;
+        }
+}
+class Fihlo extends Obj_pai{
+        constructor(){
+                super()
+        }
+}
+[encapsulamento]
+* getters and setters
+const obj={
+        _valor:atributo;//comecar valor com _ é uma convenção do js para mostrar que o valor so pode ser acessado dentro do objeto
+        get valor(){return this._valor;};
+        set valor(valor){this._valor=valor};        
+}
+[Herança]
+Um objeto tem uma referênciaao seu prototipo
+Objeto não possui prototype e sim .__proto__
+* prototype
+se não encontrar determinado atributo dentro do objeto ele vai procurar dentro do objeto pai
+retornando undefined se nao existir
+objeto.__proto__ é igual á Object.prototype
+* setPrototypeOf
+Object.setPrototypeOf(filho,pai);-setando de outro modo a herança
+* herdando
+objfilho vai herdar atributo1 de objpai, e vai possuir novo atributo2
+const objpai={atributo1:'a'};
+const objfilho={__proto__:objpai,atributo2='b'};
+* super
+usado para acessar metodos ou atributos da classe pai
+super.metodo()
+* object.create
+usando herança com object.create
+const objectfilho=Object.create(objeto_pai);
+ou
+const objectfilho=Object.create(objeto_pai,{
+        atributo_pai:{value:"elemeto",writable:false ou true,enumerable:false ou true},
+})
+* hasOwnProperty()
+Objeto.hasOwnProperty(atributo)-exibe se determinado atributo pertence ou não ao objeto
+* Obs
+new Objeto.__proto__===Objeto.prototype-true
+Objeto.__proto__===function.prototype-true
+function.prototype.__proto__===Object.prototype-true
+Obtect.prototype.__proto__===null-true
+* mudando funçoes padroes
+[Ex]
+Adicionando um reverse as strings
+String.prototype.reverse=function (){
+        return this.split('').reverse().join('');
+}
+'string 1'.reverse()-reverte toda string
+Adicionando metodo first no array
+Array.prototype.frist=function (){
+        return this[0];
+}
+pode ser usado para sobrescrever metodos ja usados(nao recomendado)
+* evitando modificações em objetos(preventExtensions)
+const objeto=Object.preventExtensions({
+        atributo1:elemento,
+        atributo2:elemento,
+})
+cria objeto que não pode ser extendido, não podendo criar novos atributos.
+Object.isExtensible(objeto)-checar se o objeto esta extensivel 
+* Object.seal
+Object.seal(objeto)-não consegue adicionar nem excluir atributos
+Object.isSealed(objeto)-checa se ele esta selado
+---------------------------------
+
+---------------[JSON]------------
+Usado em comunicação de sistemas
+Texto
+'{"atributo1":elemento,"atributo2":elemento}'
+podendo o elemento ser-numeros(sem aspas)
+                      -strings(com aspas duplas)
+                      -boleanos(sem aspas)
+                      -objeto(entre chaves)
+                      -array(entre [])
+
+* converter objeto em JSON
+-JSON.stringify(objeto)-
+* converter JSON em objeto
+-JSON.parse("JSON")-
+---------------------------------
+
+----[imperativo e declarativo]---
+* imperativo
+passo a passo é mais importante do que tem que ser feito
+
+* declaravito
+o que deve ser feito é mais importante que como vai ser feito
+criando funçoes em variaveis, para serem reutilizadas
+---------------------------------

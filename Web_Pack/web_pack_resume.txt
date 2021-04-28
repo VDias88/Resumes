@@ -1,0 +1,69 @@
+---------------[OBS]----------------
+node dist/main.js-rodar
+npm start-uild
+npm i-instalr dependencias
+------------------------------------
+
+---------------[modulos]-------------------
+Cada tipo de arquivo src deve ser importado por meio de um js
+pasta assets-recursos estaticos da aplicação
+[webpack.config.js]
+arquivo de configuração do webpack
+const webpack=require('webpack')
+
+module.exports = {
+    mode:'',//determina qual modo do webpack-podendo ser development ou production
+    entry:'',//determina qual arquivo js será o main
+    output:{
+        filename:'',//determina qual arquivo de saida(geralmente o mesmo )
+        path: __dirname+ '',//determina o caminho de saida( nesse esta determinado como a raiz(__dirname e uma pasta public presente))
+    },
+
+}
+[Loaders]
+Adicionando carregadores de tipos de arquivos 
+* .css
+module:{
+    rules:[{//adicionando loaders
+        test: /\.css$/,//lendo arquivos .css
+        use:[
+            'style-loader',// Adiciona css dentro da DOM (colocando tag <style>)
+            'cdd-loader',//interpreta @import,url()
+        ]
+    }]
+},
+* sass
+devDependecies--
+"node-sass": "5.0.0",
+"sass-loader": "11.0.1",
+module:{
+    rules:[{//adicionando loaders
+        test: /\.s?[ac]ss$/,//lendo arquivos .sass e .css e .scss
+        use:[
+            'style-loader',// Adiciona css dentro da DOM (colocando tag <style>)
+            'cdd-loader',//interpreta @import,url()
+        ]
+    }]
+},
+* externalizando css
+adicionar mini-css-plugin as devDependecies
+webpack.config.js--
+const MiniCssExtractPlugin=require('mini-css-extract-plugin')
+plugins:[
+    new MiniCssExtractPlugin({
+        filename:"estilo.css"//nome do arquivo de estilo .css
+    })
+]
+use:[
+    MiniCssExtractPlugin.loader//adicionar a constante do plugin
+    //'style-loader'-MiniCssExtractPlugin e style-loader sao conflitantes
+]
+index.html--
+linkar o css com nome do arquivo estilo
+<link rel="stylesheet" href="estilo.css">
+[Otimizaçao]
+adicionando otimizador de codigos css e js
+devDependecies--
+"optimize-css-assets-webpack-plugin": "5.0.4",
+"uglifyjs-webpack-plugin": "2.2.0",
+------------------------------------

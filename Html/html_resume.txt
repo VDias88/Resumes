@@ -1,0 +1,235 @@
+rodar servidor-http-server -c-1 .
+iniciar nodemone server-npm start
+-----------[tags]-----------
+* obs
+tags podem ter corpo ou não
+podem ter parametros ou não
+
+* abrindo e fechando tags
+<tag>
+
+</tag>
+* comentarios
+<!== Comentarios==>
+* criacão de tags com id
+tag#id-sera criado determinada tag com id dito após o #
+* criacão de tags com classe
+tag.class-será craido uma tag com determinada classe
+----------------------------
+
+----------[anatomia]--------
+doctype-<!doctype html>-mostrar qual versao do html
+<html>-começo
+    <head>-comeco da pagina
+        <meta charset="utf-8">-tipo de caracteres da pagina
+        <title>titulo aqui</title>-titulo da pagina
+    </head>
+    <body>-corpo da pagina
+        <header>-cabecalho
+            <h1>Cabecalho da pagina</h1>-usado pelo CEO da google(mecanismo de pesquisa)
+        </header>
+    </body>
+</html>
+----------------------------
+
+--------[Classes e ids]-----
+usados como identificadores de tags
+ids devem ser unicos para a pagina inteira
+tags podem ter mesma classes
+<tag id="algum id"></tag>
+* class
+<tag class="classe1 classe2"></tag>
+<tag class="classe1"></tag>
+na segunda tag tem em comum classe1 com a primeira tag
+----------------------------
+
+---------[textos]----------
+espaços entre palavras não serão considerados, apenas um espaço é colocado entre as palavras
+* headers
+<h1></h1>-cabecalho principal
+cabecalhos vão ate o 6 ordem descrescente de nivel de importancia
+* paragrafo
+<p>texto </p>
+quabras de linha são feitos com tags
+* negrito e italico
+<b>negrito</b>
+<i>italico</i>
+* sobrescrito subscrito
+2<sup>2</sup>-2 elevado a 2
+* espaços
+&nbsp-usando entidades como espaços
+tambem podem ser criados usando css
+* quebra de linha,quebra tematica
+<br></br>-quabra de linha
+<hr />-quabra de temas
+* marcaçoes semanticas
+<strong>Texto</strong>-texto com grau de importancia maior(coloca em negrito)
+<em>Texto</em>-
+* citação
+<blockquote cite="citação">citação longa</blockquote>
+<p>
+   alguem disse <q> citação curta</q>-sutação fica escrita com ""
+</p>
+[outras tags]
+<abbr title="Nome_paraabreviar">Abreviaçao</abbr>
+<cite>citação de obra</cite>etc etc...
+<dnf>algo para definir</dfn> definição
+<address>
+    endereço n <sup>o</sup>
+</addres>
+<del>paravra</del>-palavra aparece cortada(retirada)
+<ins>palavra</ins>-palavra aparece sublinhada(inserida)
+<s>valor1</s>valor2-mostrar que valor1 não é mais valido e valor2 é 
+----------------------------
+
+------------[listas]--------
+* ordenada
+<ol>-começar lista
+    <li>Nome1</li>-item de lista
+
+</ol>
+* não ordenada
+<ul>
+    <li>Nome1</li>
+    <li>Nome2</li>
+</ul>
+* lista de definições
+<dl>
+    <dt>item para definição</dt>
+    <dd>definição</dd>
+
+</dl>
+* listas aninhadas
+usando qualuqer tipo de listas e dentro de um item coloca outra lista
+<ol>
+    <li>Item1
+        <ul>
+            <li>subitem1</li>
+        </ul>
+        </li>
+</ol>
+----------------------------
+
+-----------[Links]----------
+[url absoluta]
+* abrindo em nova guia
+<a href="link" targer="_blank">link</a>
+
+[url relativa]
+<a href="index.html">link</a>
+<a href="/index.html">link</a>-acessando pasta raiz da aplicação
+* link para enviar email
+<a href="mailto:emaildestino@gmail.com">link</a>-abre aplicativo nativo para enviar email para determinado contato
+* ancora
+navegando usando links ate uma parte de um site(roll)
+<a href="#id_tag">link</a>
+----------------------------
+
+-----------[tabelas]--------
+separada em  cabecalho, corpo e rodapé
+<table>
+    <caption>Titulo tabela</caption>
+    <thead>-cabecalho
+        <tr>-table row-
+            <th>Nome coluna1</th>
+            <th>Nome coluna2</th>
+        </tr>
+    </thead>
+    <tbody>dados
+        <tr>-table row
+            <td>Dado coluna 1</td>
+            <td>Dado coluna 2</td>
+        </tr>
+        <tr>
+            <td>Dado 1 coluna 1</td>
+            <td>Dado 1 coluna 1</td>
+        </tr>
+    </tbody>
+    <tfoot>-rodapé
+        <tr>-dados de rodapé
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+* coluna oculpar mais de uma coluna da tabela
+<tfoot>
+<tr>
+    <td colspan="numero de colunas par ocupar">Nome da coluna</td>
+</tr>
+</tfoot>
+* ocupar mais linhas
+<tfoot>
+<tr>
+    <td colspan="numero de colunas par ocupar" rowspan="numero de linhas para ocupar" >Nome da coluna</td>
+</tr>
+</tfoot>
+----------------------------
+
+---------[Formularios]------
+<input type="tipo do input" name="nome do input">
+* senhas
+<input type="password" name="senha">
+* area de texto
+<textarea name="nome do texto" cols="numero de colunas" rows="linhas">
+* radio
+<input type="radio" name="">
+* checkbox
+<input type="checkbox" nome="">
+* select
+<select name="">
+    <option value="algo">item1</option>
+</select>
+* select com multiplas escolhas
+<select name="" multiple size="opçoes">
+    <option value="algo">item1</option>
+</select>
+----------------------------
+
+-------------[Mídias]-------
+[Imagens]
+<img src="link_absoluto" alt="legenda_caso_imagem nao exista" width="largura" height="altura">
+* gifs
+<img src="link_absoluto_do_gif" alt="legenda_caso_imagem nao exista" width="largura" height="altura">
+* alinhar
+<img src="link_absoluto" alt="legenda_caso_imagem nao exista" aling="left or hight">
+* picture
+<picture>
+    <source srcset="link"
+    media="(min-width=tamanho de largura minimo em px)">
+    <img src="link" alt="Logo">-caso a largura minima da tag source não for cumprida a tag img sera exibida
+</picture>
+
+[Videos]
+<video>
+    <source src="link" type="video/tipo">
+    <source src="link" type="video/tipo">
+    Seu browser não suporta esse video
+    //Caso o primeiro e o segundo link não funcionarem a mensagem será exibida
+</video>
+* controles
+<video width="" height="" controls>
+    //ativa os controles de video 
+</video>
+* autoplay
+<video width="" height="" controls autoplay>
+    //video inicia automaticamente ao abrir pagina
+</video>
+* controlslist
+<video width="" height="" controls controlsList="nodownload">
+    //desabilida possibilidade de download
+</video>
+* 
+----------------------------
+
+-------[Tags não visuais]---
+[Tags semanticas]
+<section></section>-agrupamento tematico
+<article></article>-conteudo auto-contido(com assunto diferente com o seu arredor)
+<header></header>-cabecalho da pagina
+<footer></footer>-rodapé da pagina
+<nav></nav>-agrupamento de links para navegação
+<aside></aside>-sidebar, e pode estar relacionado a um conteudo(adendo)
+<details></details>-exibe detalhes que pode ser exibidos e escondidos
+<div></div>-divisão ou seção
+<span></span>-agrupar elementos inline(usado para mudar elementos dentro de outros)
+----------------------------

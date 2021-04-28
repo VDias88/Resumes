@@ -1,0 +1,696 @@
+interação com html e css
+
+console.log();-mostrando no console do navegador
+<script src="scriptjava.js"> </script>-executar js no navegador por um arquivo
+
+-------tipos-de-dados--------
+typeof(elemento);-exibe tipo de dado no console ou typeof elemento
+Number-
+String-
+Boolean-
+Empty Values-
+obs---
+console.log(5*null)-0
+console.log("5"-3)-2
+console.log("5"+1)-51
+console.log("dois"*"tres")-NaN
+---
+-----------------------------
+
+---------aritimetica---------
++,-,/,*,%
+-----------------------------
+
+----------numbers------------
+special numbers---erros
+Infinity
+-Infinity
+NaN(not a number)
+---
+-----------------------------
+
+-----------string------------
+''
+""
+`´-(back ticks)shift acento agudo
+\n pular linha
+concatenar---
+usando back ticks
+console.log(`some: ${elemento}´);template literals
+string.length-tamanho
+---
+
+funcoes---
+string.toUpperCase()
+string.toLowerCase()
+string.trim()-remove tudo que não é caractere
+string.padStart(n1,c1)-adiciona o caractere c1 antes da string,usando o padrao n1 de numeros ao total
+string.split(separador)-dividir string em um array tendo como um separador como condição
+string.join(separador)-junta elementos de um array usando separador entre eles
+string.repeat(n1)-repete string n1 vezes
+
+---
+-----------------------------
+
+-----------booleans----------
+comparações entre tipos ou valores
+>,<,>=,"<=",==,!=,===(identico)
+&&,||,!-and,or,not
+-----------------------------
+
+-----------declaração--------
+let nomeVar=atribuição;
+var 
+const nome=atribuiçao-constantes nao mutaveis
+convenções---
+não comecar com numero
+pode usar $,_
+sem outros caracteres especiais
+pode iniciar com maiusculas
+camelcase
+undefined-algo não definido
+---
+-----------------------------
+
+-----------input-------------
+caixa de testo prompt("escrever algo para exibir ");
+alert("mensagens")-mensagem na tela(nao usado)
+
+Hard:TRATAMENTO DE INPUTS---
+Number.isNaN();
+---
+-----------------------------
+
+------------Math-------------
+Math.max(numero1,numero2)-maior numero dentre
+Math.min();-menor numero dentre
+Math.round()-arredondar ao mais perto
+Math.ceil()-arredondar para cima
+Math.pew(a,b)-a elevado a b
+Math.random()-numero aleatorio
+Math.abs(n)-valor absoluto de um numero
+-----------------------------
+
+-----------estruturas--------
+break;
+continue;-pular execução
+condição---
+if(){
+    
+} else if(){
+
+} else {
+
+}
+---
+switch(){
+    case condição1:
+        break;
+    case condição2:
+        break;
+    default:
+        break;
+}
+repetição---
+while(){
+
+}
+==
+do{
+
+}while();
+==
+for(let contador;condiçao;incremento){
+
+}
+==
+
+---
+-----------------------------
+
+------------funções----------
+function nome(prametros){
+
+}
+funçao em variavel---
+const nome=function(parametros){
+
+}---
+
+arrowfunctions---
+forma de escrever funções
+
+const varivael=(parametros)=>{
+
+}
+---
+
+valores default---
+função(argumento1,arg2=valor){
+
+}
+caso arg2 nao seja determinado ele sera igual a "valor"
+---
+clousure---
+função que armazena corpo lexico
+function nome(){
+    variavel =atribuição;
+    metodo2(){
+        variavel=atribuiçao;
+    }
+    return nome();
+}
+---
+
+recursão---
+função chama a ela mesma
+
+---
+
+rest---
+função que pode receber varios parametros, os transformando em um array
+function nomefuncao(...parametro){
+
+}
+---
+
+funções anonimas---
+var nome=function(params){
+
+}
+---
+-----------------------------
+
+---------------arrays--------
+podem ser misturados tipos bool,number,string
+let nomeVariavel=[valor1,valor2]
+array[elemento];
+
+metodos---
+nomearray.pop();-remover ultimo elemento de array
+nomearray.push();-adiciona ultimo elemento no array
+nomearray.shift()-remove elemento do comeco do array
+nomearray.unshift()-adiciona elemento no comeco do array
+nomearray.indexOf()-primeiro indice de determinado elemento
+nomearray.lastIndexOf()-encontra ultimo indice de um elemento
+nomearray.slice(n1,n2)-corta de n1 ate (n2-1) criando novo array com o corte,se nao existir n2 sera do n1 ate o fim
+numeros negativos-ultimos elementos do array
+nomearray.forEach(variavel para cada elemento =>{
+    codigo;
+});
+nomearray.includes(elemento)-verifica se o array contem o elemento
+nomearray.reverse()-retorna array invertido
+---
+
+destructuring---
+definir variaveis com valores de array mais rapidamente
+let [variavel1,variavel2]=nomearray;
+variave1 tera como valor o primeiro indice do nomearray e assim por diante
+---
+-----------------------------
+
+-------objeto-ou-classes-----
+let nomeObjeto={
+    propriedade1:atributo,
+    ou
+    chave:valor,
+    ou
+    "chave 1":valor,
+    metodo:function(){
+        codigo;
+    }
+}
+nomeObjeto.propriedade1
+delete nomeObjeto.propriedade;-deletar propriedade de um objeto
+nomeObjeto.novaPropriedade=atributo;-criar nova propriedade
+
+HERANCA---
+class Nome{
+    constructor(parametros){
+        this.propriedade=parametros;
+    }
+}
+class Nome2 extends Nome{
+    constructor(parametros){
+        super(parametros);-acessar propriedades classe pai
+
+    }
+}
+---
+
+INSTANCE OF---
+new Objeto instanceof Objeto2-verifica se Objeto é uma instancia de Objeto2
+
+---
+
+GETTERS---
+get nome(){
+    return ...;
+}
+set nome(value){
+    this.propriedade=value;
+}
+---
+
+funções---
+Object.assign(objeto1,Objeto2)-Objeto1 herdara propriedades do objeto2
+Object.keys(objeto)-mostra todas chaves ou propriedades de um objeto(array)
+---
+
+mutabilidade---
+let obj1={
+    a
+}
+obj2=obj1;
+let obj3{
+    a
+}
+(obj2==obj1)true
+(obj3==obj1)false
+---
+
+destructuring---
+definir variaveis com propriedades de um objeto mais rapidamente
+const {propriedade1:varievel,pripriedade2:variavel2}=objetoNome;
+---
+
+prototype---
+Object.getPrototypeOf(objeto1)-prototype de objeto1 é criado na inicialização de objeto1
+Object é o prototype raiz com todo metodos nativos
+objeto1.hasOwnProperty(propriedade)-verifica se o objeto1 tem a propriedade em seu escorpo
+criando classes/objetos
+let Objeto2=Object.create(Objeto1)-criar Objeto2 tendo como base de prototypes o Objeto1
+
+metodos no prototype---
+function Objeto(parametros){
+    this.propriedade=parametro;
+}
+Objeto.prototype.funcao1=function(parametros){
+    codigo;
+}
+
+---
+
+---
+
+construtor---
+sem new---
+function criarObjeto(parametros){
+    let objeto=Object.create({});
+    objeto.propriedade=parametro;
+    return objeto;
+}
+---
+
+usando new---
+function Objeto(parametros){
+    this.propriedade1=parametro;
+}
+let nomeObjeto=new Objeto(arametros);
+---
+let nomeObjeto1=criarObjeto(parametro);
+---
+
+Symbols---
+propriedades unicas quem não podem ser mudadas, nem craidas duas vezes
+let variavels=Symbol();
+--settar como propriedade imutavel
+Objeto.prototype[variavels]=atribuição;
+--acessando propriedade imutavel
+Objeto.prototype[variavels]
+---
+----------------------------
+
+-------------JSON-----------
+comunicação entre servicos
+não tem métodos
+entregar e receber dados
+
+let nomeJson{
+    "pripriedade1":"atribuição",
+    "propriedade2":["tribuicao1",atribuicao2]
+
+}
+nomeJson.pripriedade1-acessar
+JSON para string
+JSON.stringify(JSONvariavel);
+string para JSON
+JSON.parse(string)
+----------------------------
+
+-----------ES6--------------
+novos recursos o java script
+nem todos navegadores usam
+class Nome{
+    construtor(parametros){
+        this.propriedade=parametro;
+    }
+}
+com essa abordagem adicionar propriedades so pode ser realizada por meio de funcoes ou 
+pelo prototype
+Objeto.prototype.novaPropriedade;
+----------------------------
+
+-----tratamento-de-bugs-----
+
+strict mode---
+"use strict"
+torna declarar uma variavel de uma forma mais rigorosa(usando let sempre)
+pode ser usado apenas em funçoes e tambem no arquivo inteiro
+---
+
+debug---
+console.log();
+debugger;-para codigo onde ela é inserida
+---
+
+exception---
+throw new Error(error mesage);
+---
+
+try catch---
+Tips-[caso codigo dentro o try exibir algum error do tipo error tipe ele ira 
+executar o codigo dentro do bloco catch]
+try{
+
+} catch(error tipe){
+
+} finally{
+    <codigo que será executado com ou sem >
+}
+---
+----------------------------
+
+-----expressoes-regulares---
+forma de encontrar padroes em uma string
+validações
+regex
+let nome1=new RegExp("padrao"); ou
+let nome2=/padrao/
+/padrao/(ou nome1).test("string");-retorna se o parao esta na string
+
+usando conjuntos como padroes---
+[n1n2]-dois numeros como padrão
+[n1-n2]-numeros de n1 ate n2 como padrao
+[0-9]-verificar se a frase tem numeros
+[^0-9]-verifica se a frase não tem numeros(^-not)
+/(strin1|string2)/-verificar se texto contem string1 ou strin2(choice pattern)
+---
+
+caracteres-especiais---
+ID
+\d-caracteres digitos
+\w-caractere alfanumerico
+\s-caractere sem espaço em branco
+\D-caracteres não digitos
+\W-caractere não alfanumerico
+\S-caractere que n seja alfanumerico
+.-qualquer caractere menos nova linha
+\b-texto termina com ID
+Ex:
+/\d\d\d/-verifica se foram digitados 3 digis e se sao digitos
+---
+
+operadores---
+^-not
++-plus-1 ate infinito numeros de caracteres
+?-question-torna o padrao opcional
+{n1,n2}-limitador de caracteres(n1 ate n2 digitos)
+Ex:
+let telefone=/\d{4,5}-\d{4}/;
+("1234-1234") true
+("12345-1234") true
+---
+
+metodos---
+/padrao/.exec("texto");-retorna mais detalhadamente o error de padrao no texto
+"texto".match(/padrao/);mesmo modo de exec
+---
+EX:
+/[?www.]\w+\.com.br|.com/-verificação de dominio
+/\w+@\w+\.\w+/-verificação de email
+/^[0-31]{2}[/][0-12]{2}[/][1920-2020]{4}/-validação nascimento
+----------------------------
+
+---programação-assincrona---
+não esta ligado ao fluxo do código
+
+callbacks---
+função que faz ação após algum acontecimento no código
+usado junt com setTimeout
+setTimeout(function(){
+    código;
+},tempoparaexecução);
+tempo em milisegundos
+---
+
+promises---
+ações quem podem produzir um valor em algum momento no código
+forma de dizer a linguagem que um valor pode estar presente em um futuro do código
+let nomepromise=Promise.resolve(promessa a ser resolvida);
+nomepromise.then((value)=>código para executar);
+then-faz a promise ser executada em um ponto futuro
+erros
+let errorpromise=Promise.resolve(new Error("razão de error"));
+errorpromise
+    .then((value)=>console.log(value))
+    .catch(reason=>console.log(reason));
+    executa o .catch pois o error é lançado do promise
+
+rejeitando promisses
+quando algo não satisfaz programa pode-se usar eject em vez de resolve
+termina a promise não podendo chamar com o then
+new Promise((resolve,reject)=>{
+    if(condiçao){
+        resolve.(codigo);
+    }
+    else{
+        reject(new Error("razão"));
+    }
+});
+resolvendo varias promisses
+resolvendo promessas p1 e p2 
+Promise.all([p1,p2]).then((values)=>console.log(values));
+---
+
+async functions---
+retornam promises
+se retornar algo a promessa é resolvida 
+caso algum problmema ocorra a promessa é rejeitada
+async function nomefuncao(parametros){
+    return algo;
+}
+//usando o retorno da async no then
+nomefuncao(params).then(function(value){
+    codigo 
+
+})
+
+AWAIT
+em async functions usa-se await para esperar a promise ser resolvida para apresentar resultados
+async function nome(){
+    return await x;
+}
+---
+
+generator---
+ações podem ser pausadas e continuadas depois
+caracterizadas pelo function* e yield
+function* nome(){
+    let i=0;
+    while(true){
+        yield i++;
+    }
+}
+yield salva o estado da variavel
+---
+
+----------------------------
+
+------------------------WEB-JS------------------------
+protocolos---
+comunicação por computadores atravez das redes
+HTTP-solicitarmos arquivos,imagens
+SMTP-enviar e-mail
+TCP-transferencias(downloads)
+---
+
+url---
+protocolo+servidor+arquivo
+http://www.site.com.br/index.html
+---
+
+------------html------------
+linguagem de marcação
+
+estrutura---
+head e body-mais importantes
+head é usado para configurações do documento
+body usado para elementos(parte visual)
+utilizando java script por meio do <script> e linkando com o src(protocolo http)
+<script src="javascript.js"></script>
+estruturas aninhadas-
+tag dentro de outr tag
+---
+
+Dom---
+espelho do html, é alterado pelo js
+objeto do código html criado para ser acessado pelo js
+criação de eventos e animações(css)
+ACESSO
+acessando pelo js-document
+acessar todos elementos a partir de document.body
+acessando elementos usando documento.body.childNode
+---
+
+acessando elementos---
+document.getElementsByTagName(tag)-retorna html colection com elementos 
+com essa mesma tag
+document.getElementById(id)-
+criando id-<tag1 id="algum id"></tag1>
+document.getElementsByClassName('classe')-usando a classe para acessar elementos(acessa alementos que possuem 'classe' assim 'classe 1' tambem pode ser acessado)
+<tag class="classe1"></tag>
+document.querySelector('#id tag')-acessar elementos usando seletores de css
+'pai filho'
+acessando varios
+.querySelectorAll("")-acessa todos itens com mesmo padrão
+---
+
+mudando elementos---
+adicionndo removendo ou clanando elementos html atravez do DOM
+elementopai.insertBefore(newelement,element)-
+newelement=document.createElement("elemento")
+element=document.querySelector("")-acessando elemento a ser alterado
+alementopai=document.querySelector("")-elemento pai q sera adicionado o metodo
+
+appendChild-colocando elemento por ultimo em um elemento pai
+let newelement=document.createElement("elemento");
+let localizar=document.querySelector("elemento1");
+let pai=localizar.parentNome;
+pai.appendNode(newelement);
+
+usado tambem para criar nos de texto-
+txt=document.createTextNode("texto");
+element=document.getElement...;
+element.appendChild(txt);
+
+replaceChild-repõe um antigo elemento do DOM com um novo
+pai=antigo.parentNode;
+pai.replaceChild(novo,antigo);
+
+modificando atributos
+let url=document.getElementById('link');
+url.getAttribute('href');
+url.setAttribute("antigo","novo")
+
+acessando altura e largura de elementos
+elemento=document.getElement...;
+elemento.offsetWidth;-contando com borda 
+        .offsetHeight;
+        .clientWidth;-desconsiderando borda
+        .clientHeight;
+
+posições de elementos
+elemento=document.getElement...;
+elemento.getBoundingClientRect()-retorna posição detalhada do elemento em 
+relação a tela
+
+alterando css por js
+elemento=document.getElement...;
+p.style-acessando css do elemento
+
+---
+----------------------------
+
+------------[Eventos]-------
+handlers-eventos do usuario
+
+criando eventos
+deve-se atrelar evendo a um elemento
+let botao=document.querySelector("#btn");
+botao.addEventListener("ação do usuario",function(){
+    ação;
+});
+-teclas-
+window.addEventListener("keydown ou keyup",function(e){
+    codigo;
+    e.key-qual tecla clicou
+});
+-mouse-
+"mousedown"
+"mouseup"
+"dblclick"-duplo clique
+elemento.addEventListener("contextmenu",function(e){
+    e.preventDefault();
+    //usando o botao direito do mause
+    //desativando a ação default: contextmenu
+});
+* pegando moviento do mouse
+window.addEventListener("mousemove",function(e){
+    e.x;
+    e.y;
+    //acessando cordenadas do mause no site
+});
+scroll
+window.addEventListener("scroll",function(e){
+    window.pageYOffset-tamanho da pagina de cima para baixo
+    window.pageXOffset-tamanho da pagina da esquerda para direita
+});
+-[foco]-
+ganhando foco
+elemento.addEventListener("focus",function(){
+    codigo;
+});
+perca de foco
+elemento.addEventListener("blur",function(){
+    codigo;
+});
+-[carregamento]-
+abrindo pagina
+window.addEventListener("load",function(e){
+    codigo;
+});
+ates de fechar pagina
+window.addEventListener("beforeunload",function(e){
+    codigo;
+    event.returnValue=null;
+});
+-[Debounce]-
+suavisador de evento-não chamar o mesmo mais vezes que o necessario
+EX:
+let timeout;
+window.addEventListener("mousemove",function(e){
+    clearTimeout(timeout);
+    timeout=setTimeout(function(){
+    console.log(e.x);
+    },tempo);
+});
+a função mousemove so sera executada e mostrada a cada "tempo"
+servindo para diminuir o uso de memoria de algumas funções
+
+-[removendo ventos]-
+para remover eventos não deve usar funçoes anonimas no evento 
+elementocomevento.removeEventListener("açaodoevento",função_nao_anonima);
+
+objeto de evento
+quando o evento é criado um objeto dele é criado automaticamente
+que contem propriedades do evento
+function nome(e){
+    console.log(e);
+}
+função exibe o evento do evento
+
+propagação
+multiplicação de ativação de eventos
+quando um evento esta dentro de outro e o ativa
+e.stopPropagation();-parando propagação do evento
+
+ações default
+algumas ações vem por padrao no js
+EX:clicar em um link e ser redirecionado
+para sobescrever esse evento usa-se o evento.preventDefault();
+
+----------------------------
+
+------------------------------------------------------
+

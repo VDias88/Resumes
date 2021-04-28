@@ -1,0 +1,116 @@
+--------------[protocolo]-----------
+TCP-protocolo de controle de transmissão,orientedo a conexão
+UDP-user datagram protocol,
+IP-internet protocol,roteamento entre redes
+[TCP-IP]
+padrão layers
+Aplicação>transporte>interneet>rede/física
+------------------------------------
+
+----------------[IPv4]-------------
+[IP]
+mascara de subrede
+* classe A
+[192].[168.100.230]
+rede   host
+255.0.0.0
+* classe B
+[192.168].[100.230]
+  rede       host
+255.255.0.0
+* classe C
+[192.168.100].[230]
+    rede       host
+255.255.255.0
+-----------------------------------
+
+---------------[Http]--------------
+hiper text transfer protocol
+url>browser gera requisição(GET)> servidor web gera resposta(contendo html...)>browser renderiza resposta na tela
+[Requisição]
+* Get
+parametros vao diretamente na url
+* Post
+parametros vao no corpo da requisição
+[Codigos status]
+1XX-informação
+2XX-sucesso
+3XX-redirecionamento
+4XX-erro no cliente
+5XX-erro no servidor
+-----------------------------------
+
+---------------[https]-------------
+http + segurança
+dados criptografados usando protocolos tls ou ssl
+protege contra interceptação(MITM)
+criptografa todas informações:URL,cookies,headers
+* certificados
+são usados para comunicaçoes seguras, habilitar https no servidor
+lets encrypt-emite certificados de forma gratuita
+
+-----------------------------------
+
+----------[client e server]--------
+* server side
+Toda aplicação, logica ficam no servidor
+Acesso ao banco de dados é feito diretamente
+* client side
+Antes do contato ao banco de dados os dados passam por validaçao, verificação de segurança
+-----------------------------------
+
+--------------[Conteudo]-----------
+* stático
+para henderizar uma pagina o servidor apenas le arquivos no disco
+* dinamico
+conteudo gerado a partir de um codigo, podendo incluir dados personalizados
+gera html, codigo dinamicamente de acordo com a consulta
+-----------------------------------
+
+-----------------------------------
+html-marcação da pagina
+css-estilo
+js-comportamento
+-----------------------------------
+
+---------------[DNS]---------------
+servidor dns-traduz nomes de dominio em endereços ip
+* funcionamento
+1-usuario informa endereço no browser
+2-computador envia consulta dns para servidor local
+3-srvidor responde com endereço IP
+4-computador acessa servidor a partir do ip obtido
+[buscas]
+* recursiva
+client dns > servidor dns assiciado > consultar outros servidores dns > outros servidores dns respondem com ip > 
+* interativa
+client dns > servidor dns associado > resposta com dns referencia > novo dns associado 
+[registros]
+A-Ipv4
+AAAA-Ipv6
+MX-servidor email
+NS-servidor dns
+CNAME-apelido
+-----------------------------------
+
+------------[web services]---------
+servicoes em tecnologias web disponibilizados em textos
+* soap
+simple object access protocol
+wsdl,xml,rpc
+burocratico
+* rest
+representational state transfer
+JSON,http
+simples
+rest ful-web service que compre todas convencoes do rest
+* CRUD
+POST-novo cliente
+GET-dados de cliente
+PUT-atualizar dados de cliente
+DELETE-excluir cliente
+-----------------------------------
+
+--------------[nuvem]--------------
+
+-----------------------------------

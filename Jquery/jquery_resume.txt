@@ -1,0 +1,165 @@
+-------------[Definiçoes]-------------
+Biblioteca js
+Ajuda no acesso de elementos da DOM
+Manipulação de eventos, animaçoes
+Seletores css
+Encadeamento de chamadas
+--------------------------------------
+
+-------------[Funçoes]----------------
+[referencia]
+* seletores
+$('div')-retorna elementos em forma jquery 
+$('.class')
+$('#id')
+* exclusivos jquery
+$('div:first')-primeiro elemento do tipo div
+$('div:odd')-elementos impares do tipo div
+$('div:gt(1)')-elementos maiores quer indice 1 do tipo div
+$('div:not(:last)')-elementos não ultimos do tipo div
+$('div:contains("letra")')-elementos quem possuem determinada letra do tipo div
+$('form :tipo')-elemento do form com determinado tipo
+* seletores com vanila js
+const elemento=documento.getElementByClassName('name')
+$(elemento).css('border','none')
+[Funcoes]
+.hide(milisegundos)-usa animação simples para esconder determinado selecionado
+.show(milisegundos)-mostra determinado selecionado com animaçao
+.fadeOut(milisegundos)-efeito de desaparecer usando tempo
+.get(index)-returnar elemento DOM puro(sem ser forma jquery)
+.isEmptyObject({})-retorna true se o objeto estive vazio
+.inArray(n1,n2)-retorna true se n1 estiver presente no array n2
+.addClass(classe)-adiciona classe a determinado selecionado
+.removeClass(classe)-remove classe de selecionado
+.css('propriedade','atributo')
+.parent()-acessar parente (primeiro) de selecionado
+.parents()-todos parentes de selecionado
+.parentsUntil('body')-seleciona todo parentes do selecionado  usando como limite determinado seletor
+.prev()-anterior de uma lista de selecionados
+.children()-filhos de selecionado 
+.find('seletor')-dentro de selecionado achar outros com determinado seletor
+$(document).ready(funçao)-funçao executada quando documento tiver carregado
+ou 
+$(function (){})-funçao sera chamada quando documento estiver carregado
+* modificando html
+$('div').append('<div></div>')-adiciona div dentro de div selecionada
+podendo ser passados arrays , mais de um elemento separados por virgula
+$('<div>') ou $('<div></div>') - criando div(diferenciasse do selecionamento usando <>)
+const elementos=[ --criando elementos em um array 
+    $('<div>'),
+    ...
+]
+$('div').append(elementos)
+$('div').prepend('<div>')-adiciona novos alementos antes dos que ja estavam presentes
+$('div').html('<h1></h1>')-substitui valores dentro de div por novos
+.text('text')-substitui mas nao interpreta como html e sim sempre como texto
+$('<div></div>').appendTo('div')-ao contrario do append, deve-se primeiro informar o conteudo colocado e depois onde colocado
+$('<div></div>').prependTo('div')-
+$('<div></div>').insertBefore('seletor')-insere antes do selecionado
+                .insertAfter('seletor')-insere depois do selecionado
+$('seletor').wrap('<div>')-envolve cada selecionados com uma div(tornando-as children)
+$(seletor).wrapAll('<div>')-envolve todos selecionados com uma unica div
+$('seletor').empty()-apaga todo conteudo dentro da div
+$('seletor').remove()-apaga div
+$('nova div').replaceAll('seletor')-substitui todos selecionados por nova div
+$('seletor').replaceWith('nova div')-substituiçao mas com ordem de diferente
+* atributos
+.attr('atributo') ou 
+.attr('atributo','novo valor')
+* css
+.css('atributo')-acessar fonte
+.css('atributo','novo')-mudar atributo css
+* classe
+.addClass('nome')
+.removeClass('')
+.hasClass('')-verificar caso tenha classe
+.toggleClass('class')-caso não tiver classe adiciona caso ja houver apagará
+* each
+.each((index,elemento)=>$(elemento).css(...))-varrer por todos elementos selecionados retornando index e elemento DOM puro
+usa se $(elemento) para torna o elemento DOM para jquery element
+* criar Funcoes
+$.fn.nomeFuncao=function (){
+    this.css('background-color',green)//acessando css de elemento e mudando
+    return this//tornando funçao compativel com Encadeamento(retornando proprio objeto)
+}
+$('div').nomeFuncao().hide(2000)
+* passando objetos
+const obj=comBorda = {'border':'solid 1px black'}
+$('div').css(comBorda)//atribuindo objeto 
+--------------------------------------
+
+----------------[Eventos]-------------
+* registro de evento
+$('div').on('nome_evento',funcao) ou
+$('div').nome_evento(e=>)
+'mousemove'-movimento do mouse
+'mouseover'-cursor sobre div
+'mouseleave'-cursor sai sobre di
+'click'-click sobre div
+'keydown'-
+'keyup'-valor atualizado no momento do clique
+'dblclick'-duplo clique
+'select'-evento de selecionar texto 
+* apagando evento
+$('div').off('nome_evento',funcao)
+* valores
+$('div').keyup(function (e){
+    $(this).val()//pegando valores digitados
+})
+* one
+.one('nome_evento',function)-função executada apenas uma vez
+* hover
+$('div').hover(funcao1(),funcao2())//caso so apresente primeira funçao será executada apenas ao entrar na div
+//caso duas funçoes presentesd a primeira é executada ao entrar e segunda ao sair da div 
+ou 
+$('div').on('mouseenter mouseleave',function)
+* resize
+$(window).resize(function)//evento executado quando navegador for redimensionado
+$(window).width()//retorna avlores de largura e altura da tela
+         .height()
+* select
+evento ao selecionar texto
+$(':input').select(e =>{
+    const inicio=e.target.selectionStart
+    const fim=e.target.selectionEnd//acessar inicio e fim do texto selecionado
+})
+* target
+e.target-acessa elemento que disparou evento
+e.relatedTarget-acessa elemento secundario do evento
+e.type-acessa tipo de evento 
+e.which-acessa qual tecla que chamou evento
+e.pageX-acesa posicionamento do mouse
+ .pageY
+e.clientX-
+ .clientY-
+--------------------------------------
+
+---------------[Animaçoes]------------
+[Padroes]
+.hide(time)
+.show(time)
+.toggle(time)-caso div esteja mostrada ele ira esconder caso escondido ele mostra
+.fadeOut(time)-Sumir
+.fadeIn(time)-Aparecer
+.slideUp(time)-animaçao gaveta para cima
+.slideDown(time)-gaveta para baixo
+.slideToggle(time)-
+[Personalizada]
+.animate()
+* Ex=
+$('div').animate({
+    width: `+=${novo_valor}`
+},duraçao,callback)//com a callback pode-se chamar outras funçoes de animaçao em sequencia
+.animate({css_novo},{step,duration},duration)
+--------------------------------------
+
+-----------------[Plugins]------------
+eval('')-converte string em expressoes js
+* Criando plugin
+(function ($){//pretegendo variavel $-
+    $.fn.nome_plugin = function (){
+
+    }
+})(jQuery)
+$('div').nome_plugin()-executar plugin
+--------------------------------------
